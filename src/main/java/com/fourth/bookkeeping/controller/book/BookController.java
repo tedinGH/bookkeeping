@@ -48,7 +48,7 @@ public class BookController {
     @RequestMapping(value = "", method = RequestMethod.PUT)
     public boolean update(Book book, HttpSession session){
         User user = userRedisTemplate.opsForValue().get(session.getId());
-        if(user.getId() != book.getId()){
+        if(user.getId() != book.getUserId()){
             return false;
         }
         book.setOptime(new Date());
